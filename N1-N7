@@ -62,3 +62,17 @@ void ADD_1N_N (N *a)
         }
     }
 }
+
+/*N-6: multiplies number by digit (но это не точно)*/
+void MUL_NN_N (N *a, int num)
+{
+    N *S;
+    int i,t;
+    t=0;
+    for (i=0; i<a->n-1; i++)
+    {
+        S->A[i]=(a->A[i]*num+t)%10;
+        t=(a->A[i]*num)/10;
+    }
+    if (t>0) S->A[a->n]=t;
+}
