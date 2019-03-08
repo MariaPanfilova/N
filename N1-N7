@@ -64,7 +64,7 @@ void ADD_1N_N (N *a)
 }
 
 /*N-6: multiplies number by digit (но это не точно)*/
-void MUL_NN_N (N *a, int num)
+void MUL_ND_N (N *a, int num)
 {
     N *S;
     int i,t;
