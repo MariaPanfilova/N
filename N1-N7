@@ -1,8 +1,9 @@
 #include 'prototypes.h"
 #include "struct.h"
 
-/*N-1: сравнение двух натуральных чисел*/
-int COM_NN_D (N a, N b) // a- первая структура, b- вторая структура
+/*N-1: comparisson of two natural numbers 
+if the first one is bigger than the second one-2, if they are equal-0, otherwise-1*/
+int COM_NN_D (N a, N b) // a- the first number b - the second number 
 {
     int i, res,t, count;
     t=1;
@@ -30,13 +31,34 @@ int COM_NN_D (N a, N b) // a- первая структура, b- вторая �
     return res;
 }
 
-/*N-2: проверка на ноль*/
-int NZER_N_B (N a)
+/*N-2: checks if the number equals zero 
+1-yes 0-no*/
+int NZER_N_B (N *a)
 {
-    int i, res, count;
+    int res;
     res=0;
-    if (a.A[a.n]==0) res=1; //1-yes 0-no
+    if (a->A[a->n]==0) res=1; //1-yes 0-no
     return res;
 }
 
-
+/*N-3: adds 1 to the natural number*/
+void ADD_1N_N (N *a)
+{
+    int i,t;
+    i=0;
+    t=1;
+    a->A[a->n]=0;
+    while (t!=0)
+    {
+        if (a->A[i]!=9)
+        {
+            a->A[i]++;
+            t=0;
+        }
+        else
+        {
+            a->A[i]=0;
+            i++;
+        }
+    }
+}
