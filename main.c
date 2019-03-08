@@ -1,5 +1,4 @@
-#include "prototypes.h"
-#include <struct.h>
+#include "N1- N7"
 
 int main ()
 {
