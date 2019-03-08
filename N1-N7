@@ -35,9 +35,14 @@ int COM_NN_D (N *a, N *b) // a- the first number b - the second number
 1-yes 0-no*/
 int NZER_N_B (N *a)
 {
-    int res;
+    int i, res, count;
+    count=0;
     res=0;
-    if (a->A[a->n]==0) res=1; //1-yes 0-no
+    for (i=a->n-1; i>=0; i--)
+        {
+            if (a->A[i]==0) count++;
+        }
+    if (count==a->n) res=1; //1-yes 0-no
     return res;
 }
 
