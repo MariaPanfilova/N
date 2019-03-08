@@ -1,3 +1,6 @@
+#include "prototypes.h"
+#include <struct.h>
+
 int main ()
 {
     N a, b;
