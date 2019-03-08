@@ -29,3 +29,14 @@ int COM_NN_D (N a, N b) // a- первая структура, b- вторая �
     }
     return res;
 }
+
+/*N-2: проверка на ноль*/
+int NZER_N_B (N a)
+{
+    int i, res, count;
+    res=0;
+    if (a.A[a.n]==0) res=1; //1-yes 0-no
+    return res;
+}
+
+
