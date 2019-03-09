@@ -143,7 +143,7 @@ N* MUL_ND_N (N *a, int num)
     S=malloc(sizeof(N));
     if(S)
     {
-        S->A = (int*)calloc(w+1,sizeof(int));
+        S->A = (int*)calloc(a->n,sizeof(int));
         if (S->A)
         {
             for (i=0; i<a->n-1; i++)
