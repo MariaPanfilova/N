@@ -112,7 +112,7 @@ N* SUB_NN_N (N *a, N *b)
         S->A = (int*)calloc(a->n,sizeof(int));
         if (S->A)
         {
-            if(COM_NN_D(*a, *b)==2)
+            if(COM_NN_D(a, b)==2)
             {
                 for (i=0; i<a->n-1; i++)
                 {
