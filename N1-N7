@@ -47,7 +47,7 @@ int NZER_N_B (N *a)
 }
 
 /*N-3: adds 1 to the natural number*/
-N* ADD_1N_N (N *a)
+void ADD_1N_N (N *a)
 {
     int i,t;
     i=0;
@@ -66,7 +66,6 @@ N* ADD_1N_N (N *a)
             i++;
         }
     }
-   return a;
 }
 
 /*N-4: Addition of natural numbers*/
