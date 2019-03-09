@@ -128,7 +128,6 @@ N* SUB_NN_N (N *a, N *b)
                     }
                 }
             }
-            else *S=-1;
         }
     }
     return S;
