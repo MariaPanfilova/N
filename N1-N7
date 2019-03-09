@@ -77,7 +77,7 @@ N* ADD_NN_N (N *a, N *b)
     if (COM_NN_D(a,b)==2) w=a->n;
     else w=b->n;
 
-    S=malloc(sizeof(N));
+    S=(int*)malloc(sizeof(N));
     if(S)
     {
         S->A = (int*)calloc(w+1,sizeof(int));
@@ -106,7 +106,7 @@ N* SUB_NN_N (N *a, N *b)
     N *S=NULL;
     int i,t;
     t=0;
-    S=malloc(sizeof(N));
+    S=(int*)malloc(sizeof(N)); 
     if(S)
     {
         S->A = (int*)calloc(a->n,sizeof(int));
@@ -140,7 +140,7 @@ N* MUL_ND_N (N *a, int num)
     N *S=NULL;
     int i,t;
     t=0;
-    S=malloc(sizeof(N));
+    S=(int*)malloc(sizeof(N));
     if(S)
     {
         S->A = (int*)calloc(a->n,sizeof(int));
@@ -162,7 +162,7 @@ N* MUL_Nk_N (N *a, int k)
 {
     N *S=NULL;
     int i;
-    S=malloc(sizeof(N));
+    S=(int*)malloc(sizeof(N));
     if(S)
     {
         S->A = (int*)calloc(a->n+k,sizeof(int));
