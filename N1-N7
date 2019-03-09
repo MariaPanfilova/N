@@ -68,65 +68,68 @@ void ADD_1N_N (N *a)
     }
 }
 
-N* ADD_NN_N (N *a, N *b)
+/*N-4: adding two natural numbers*/
+N* ADD_NN_N (N *a, N *b) //v.0.0
 {
-    int i,s,w;
-    N *S=NULL;
+    int i,s;
+    N *S=NULL, *tmp=NULL;
     s=0;
+
+    printf("a=%p, b=%p\n",a,b);
+    printf("an=%d, bn=%d\n",a->n,b->n);
+    if (COM_NN_D(a,b)==1)
+    {
+        tmp=(N*)malloc(sizeof(N));
+        if (tmp)
+        {
+            if (COM_NN_D(a,b)==1)
+            {
+                tmp=a;
+                a=b;
+                b=tmp;
+            }
+        }
+    }
+    printf("a=%p, b=%p\n",a,b);
+    printf("an=%d, bn=%d\n",a->n,b->n);
 
     S=(N*)malloc(sizeof(N));
     if(S)
     {
-        if (COM_NN_D(a,b)==2)
+        S->A=(int*)calloc(a->n+1,sizeof(int));
+        S->n=a->n+1;
+        if (S->A)
         {
-            S->n=a->n;
-            w=b->n;
-            printf("w=%d, n=%d\n",w,S->n);
-            S->A = (int*)calloc(w+1,sizeof(int));
-            if (S->A)
+            for (i=0;i<b->n;i++)
             {
-                for (i=0;i<w;i++)
-                {
-                    S->A[i]=(a->A[i]+b->A[i]+s)%10;
-                    s=(a->A[i]+b->A[i]+s)/10;
-                }
-                while (s>0)
+                S->A[i]=(a->A[i]+b->A[i]+s)%10;
+                s=(a->A[i]+b->A[i]+s)/10;
+                printf("si=%d, s=%d\n",S->A[i],s);
+            }
+            printf("s1=%d, s=%d\n",S->A[i],s);
+            if ((b->n)<(a->n))
+            {
+                while (i<a->n)
                 {
                     S->A[i]=(a->A[i]+s)%10;
                     s=(a->A[i]+s)/10;
                     i++;
+                    printf("si=%d, s=%d\n",S->A[i],s);
                 }
-                if (i>S->n) S->n++;
             }
+            S->A[i]=s;
+            if (S->A[i]==0)
+            {
+                realloc(S->A,a->n-1);
+                S->n--;
+            }
+            printf("i=%d\n",i);
         }
         else
         {
-            S->n=b->n;
-            w=a->n;
-            printf("w=%d, n=%d\n",w,S->n);
-            S->A = (int*)calloc(w+1,sizeof(int));
-            if (S->A)
-            {
-                for (i=0;i<w;i++)
-                {
-                    S->A[i]=(a->A[i]+b->A[i]+s)%10;
-                    s=(a->A[i]+b->A[i]+s)/10;
-                }
-                while (s>0)
-                {
-                    S->A[i]=(b->A[i]+s)%10;
-                    s=(b->A[i]+s)/10;
-                    i++;
-                    printf("S=%d, s=%d\n",S->A[i],s);
-                }
-                if (i>S->n) S->n++;
-            }
+            free(S->A);
+            S->A=NULL;
         }
-    }
-    else
-    {
-        free(S);
-        S=NULL;
     }
     return S;
 }
